@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+    <br>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Material</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Pallets</th>
+                <th scope="col">Cajas</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{ Product.material }}</th>
+                <td>{{ Product.description }}</td>
+                <td>{{ Product.ple }}</td>
+                <td>{{ Product.cajas }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Unidades</th>
+                <th scope="col">Vencimiento</th>
+                <th scope="col">BarCode</th>
+                <th scope="col">Cantidad Ideal</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{ Product.unidades }}</th>
+                <td>{{ Product.expiration_date| date:'d-m-Y' }}</td>
+                <td>{{ Product.bar_code }}</td>
+                <td>{{ Product.cant_ideal }}</td>
+            </tr>
+            </tbody>
+            <tbody class="jumbotron">
+            <tr>
+                <th scope="row">{{ Product.almacen_idalmacen }}</th>
+                <td>{{ Product.ubication_idubication }}</td>
+                <td>{{ Product.unidad_idunidad }}</td>
+                <td>{{ Product.pallet_type_idpallet_type }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <button class="btn btn-outline-success" onclick="window.location='{% url 'index' %}'">Regresar</button>
+    </div>
+{% endblock %}

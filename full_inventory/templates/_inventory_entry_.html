@@ -2,6 +2,6 @@
     <br>
     <h2>{{ Product.material }}</h2>
     <h4>{{ Product.description }}</h4>
-    <p>{{ Product.ubication_idubication }}</p>
-    <button class="btn btn-primary">Detalles</button>
+    <p>{{ Product.ubication_idubication| truncatechars:100 }}</p>
+    <button onclick="window.location='{% url 'product_detail' pk=Product.idProduct%}'" class="btn btn-primary">Detalles</button>
 </div>

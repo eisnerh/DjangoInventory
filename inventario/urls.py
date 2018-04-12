@@ -19,6 +19,7 @@ from django.urls import path
 from full_inventory import views
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.index, name='index'),
+    path('Products/<int:pk>', views.product_detail, name='product_detail'),
     path('admin/', admin.site.urls),
 ]
