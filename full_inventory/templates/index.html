@@ -1,7 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="container">
+    	<div class="row">
+    	<div class="col-lg-4">
+    		<br>
+    	<h1 align="center">Lista de Productos Disponibles</h1>
+
+    	</div>
+            <div class="col-lg-8">
+			<button type="button" class="btn btn-outline-success" onclick="window.location='{% url 'product_add' %}'">Agregar Productos</button>
+		</div>
+    	</div>
+        <hr>    	
         <div class="row">
+
             {% for Product in products %}
                 {% include '_inventory_entry_.html' %}
             {% endfor %}
