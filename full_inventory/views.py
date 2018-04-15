@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
-from full_inventory.forms import ProductsForm
+from .forms import ProductsForm
 from .models import Product
 
 
@@ -22,7 +22,7 @@ def product_detail(request, pk):
 
 def product_add(request):
     if request.method == 'POST':
-        product__form = ProductsForm(request.POST)
+        product__form = ProductsForm(request.POST)  # type: ProductsForm
         if product__form.is_valid():
             material = product__form.cleaned_data['material']
             description = product__form.cleaned_data['description']
@@ -68,4 +68,13 @@ def product_add(request):
 
 
 def product_delete(request, pk):
+    pk == Product.idProduct
     if request.method == 'DELETE':
+        products = get_object_or_404(Product, pk=pk)
+        products.delete()
+    return HttpResponseRedirect('/')
+
+
+def product_eliminar(request, pk):
+    products = Product.objects.filter(idProduct=pk).delete()
+    return HttpResponseRedirect('/')

@@ -4,4 +4,5 @@
     <h4>{{ Product.description }}</h4>
     <p>{{ Product.ubication_idubication| truncatechars:100 }}</p>
     <button onclick="window.location='{% url 'product_detail' pk=Product.idProduct%}'" class="btn btn-primary">Detalles</button>
+    <button onclick="window.location='{% url 'product_eliminar' pk=Product.idProduct%}'" class="btn btn-danger">Eliminar</button>
 </div>

@@ -13,7 +13,7 @@
     	</div>
         <hr>    	
         <div class="row">
-
+            {% csrf_token %}
             {% for Product in products %}
                 {% include '_inventory_entry_.html' %}
             {% endfor %}

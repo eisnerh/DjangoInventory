@@ -22,6 +22,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('Products/<int:pk>', views.product_detail, name='product_detail'),
     path('Products/product_add', views.product_add, name='product_add'),
-    path('Products/product_delete', views.product_delete, name='product_delete'),
+    path('Products/product_eliminar/<int:pk>', views.product_eliminar, name='product_eliminar'),
     path('admin/', admin.site.urls),
 ]
