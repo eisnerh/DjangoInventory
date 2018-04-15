@@ -2,17 +2,108 @@
 {% block content %}
     <div class="container form-group">
         <br>
-    <h1 align="center">Agregue un nuevo producto</h1>
+        <h1 align="center">Agregue un nuevo producto</h1>
         <hr>
-    <form method="post">
-        {% csrf_token %}
-        {% for field in Product_Form %}
-            {{ field.errors }}
-            <label>{{ field.label }}</label>
-            <input placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control">
-        {% endfor %}
-        <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
-    </div>
+        <form method="post">
+            {% csrf_token %}
+            {% comment %}{% for field in Product_Form %}
+                {{ field.errors }}
+                <label>{{ field.label }}</label>
+                <input placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control">
+            {% endfor %}{% endcomment %}
+            {{ Product_Form.non_field_errors }}
+            <table border="1">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <ul><label class="text-danger" for="Material">Material</label></ul>
+                        {{ Product_Form.material.errors }}
+                        <li>{{ Product_Form.material }}</li>
+                    </div>
 
+                    <div class="col-lg-4">
+                        <ul><label class="text-danger" for="Codigo Barras">Codigo de Barras</label></ul>
+                        {{ Product_Form.bar_code.errors }}
+                        <li>{{ Product_Form.bar_code }}</li>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <ul><label class="text-danger" for="Description">Description</label></ul>
+                        {{ Product_Form.description.errors }}
+                        <li class="text">{{ Product_Form.description }}</li>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <ul><label class="text-danger" for="Ple">Ple</label></ul>
+                        {{ Product_Form.ple.errors }}
+                        <li>{{ Product_Form.ple }}</li>
+                    </div>
+                    <div class="col-lg-4">
+                        <ul><label class="text-danger" for="Cjs">Cajas</label></ul>
+                        {{ Product_Form.cajas.errors }}
+                        <li>{{ Product_Form.cajas }}</li>
+                    </div>
+                    <div class="col-lg-4">
+                        <ul><label class="text-danger" for="Unidades">Unidades</label></ul>
+                        {{ Product_Form.unidades.errors }}
+                        <li>{{ Product_Form.unidades }}</li>
+                    </div>
+                    <div class="col-lg-4">
+                        <ul><label class="text-danger" for="Cant Ideal">Cant Ideal</label></ul>
+                        {{ Product_Form.cant_ideal.errors }}
+                        <li>{{ Product_Form.cant_ideal }}</li>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <ul><label class="text-danger" for="FechaEmision">Fecha de Emision</label></ul>
+                        {{ Product_Form.fecha_em.errors }}
+                        <li>{{ Product_Form.fecha_em }}</li>
+                    </div>
+                    <div class="col-lg-4">
+                        <ul><label class="text-danger" for="ExpirationDate">Fecha de Expiracion</label></ul>
+                        {{ Product_Form.expiration_date.errors }}
+                        <li>{{ Product_Form.expiration_date }}</li>
+
+                    </div>
+
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <br>
+                        <label>Almacen:</label>
+                        {{ Product_Form.almacen.errors }}
+                        <li class="dropdown">{{ Product_Form.almacen }}</li>
+                    </div>
+                    <div class="col-lg-4">
+                        <br>
+                        <label>Ubication:</label>
+                        {{ Product_Form.location.errors }}
+                        <li class="dropdown">{{ Product_Form.location }}</li>
+                    </div>
+                    <div class="col-lg-4">
+                        <br>
+                        <label>Unit Type:</label>
+                        {{ Product_Form.unit__type.errors }}
+                        <li class="dropdown">{{ Product_Form.unit__type }}</li>
+                    </div>
+                    <div class="col-lg-4">
+                        <br>
+                        <label>Pallet Type:</label>
+                        {{ Product_Form.pallet__type.errors }}
+                        <li class="dropdown">{{ Product_Form.pallet__type }}</li>
+                    </div>
+                </div>
+
+            </table>
+
+            <hr>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
 {% endblock %}

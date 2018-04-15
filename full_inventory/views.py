@@ -65,3 +65,7 @@ def product_add(request):
     else:
         product__form = ProductsForm()
     return render(request, 'product_form.html', {'Product_Form': product__form})
+
+
+def product_delete(request, pk):
+    if request.method == 'DELETE':
