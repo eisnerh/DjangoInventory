@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.contrib.auth import views as auth_views
 from full_inventory import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('login', auth_views.login, name='login'),
+    path('logout', auth_views.logout, name='logout'),
     path('Products/<int:pk>', views.product_detail, name='product_detail'),
     path('Products/product_add', views.product_add, name='product_add'),
     path('Products/product_eliminar/<int:pk>', views.product_eliminar, name='product_eliminar'),

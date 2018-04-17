@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container align-content-center">
+    <h1>
+        Login
+    </h1>
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                {{ field.errors }}
+                <input type="{% if field.label == 'Password' %}password{% else %}input{% endif %}" placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control">
+                <hr>
+            {% endfor %}
+            <br>
+        <button class="btn btn-outline-primary">Login</button>
+            <br>
+            <br>
+            <a href="/signup">Not registered, yet? <br> Sign Up </a>
+        </form>
+    </div>
+{% endblock %}
